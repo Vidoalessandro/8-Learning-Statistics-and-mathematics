@@ -44,6 +44,14 @@ function calcularTriangulo(lado1, lado2, ladoBase, altura){
     };
 }
 
+function calcularAlturaTrianguloIsosceles(lados, base){
+    if(lados == base){
+        console.warn('Este no es un triángulo isósceles');
+    } else {
+        return Math.sqrt((lados ** 2) - ((base ** 2)) / 4);
+    }
+}
+
 console.groupEnd('Triangulo');
 
 console.group('Circle');
