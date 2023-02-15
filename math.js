@@ -52,6 +52,22 @@ function calcularAlturaTrianguloIsosceles(lados, base){
     }
 }
 
+function calcularAlturaTrianguloEscaleno(lado1, lado2, lado3){
+
+    const semiPerimetro = (lado1 + lado2 + lado3) / 2;
+    const altura = (2 / lado1) * 
+    (Math.sqrt((semiPerimetro * (semiPerimetro - lado1)) * (semiPerimetro - lado2) * (semiPerimetro - lado3)));
+
+    if(lado1 == lado2 || lado2 == lado3 || lado3 == lado1){
+        console.error('No es un triángulo escaleno');
+    } 
+    else if(altura == 0){
+        console.warn('Rompiste la desigualdad triangular')
+    } else {
+        return altura;
+    }
+}
+
 console.groupEnd('Triangulo');
 
 console.group('Circle');
