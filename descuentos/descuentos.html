@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./descuentos.css">
+    <title>Descuentos</title>
+</head>
+<body>
+    
+    <section class="discount-container">
+        <div class="head">
+            <h1>Discounts</h1>
+            <p>The best way to know how much money you are going to lose, with love</p>
+        </div>
+        <div class="main">
+            <label for="price" class="label label-price">
+                <span class="span span-price">Price of the product: </span>
+                <input type="number" placeholder="123456" id="price" class="input input-price">
+            </label>
+            <label for="discount" class="label label-discount">
+                <span class="span span-discount">Discount: </span>
+                <input type="number" placeholder="10, 20 ....." id="discount" class="input input-discount">
+            </label>
+        </div>
+        <div class="footer">
+            <button class="calculate">Calculate</button>
+        </div>
+    </section>
+
+    <section class="result-container">
+        <h1>Result:</h1>
+        <p id="result"></p>
+        <p id="emoji"></p>
+    </section>
+
+    <script src="./descuentos.js"></script>
+</body>
+</html>
