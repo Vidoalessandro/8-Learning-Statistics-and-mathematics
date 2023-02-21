@@ -1,9 +1,10 @@
-const salary = [300, 400, 500, 600, 800];
-const pairArrayNumbers = [50, 20, 40, 300, 70, 5];
+// Statistical formulas on an object
+
+const StatisticsForms = {};
 
 // .sort method
 
-function orderArray(array){
+StatisticsForms.orderArray = function orderArray(array){
 
     function orderListSort(a, b){
 
@@ -30,7 +31,7 @@ function orderArray(array){
 
 // Order a two-dimensional array
 
-function orderArrayTwoDimentional(array, i){
+StatisticsForms.orderArrayTwoDimentional = function orderArrayTwoDimentional(array, i){
 
     function orderListSort(a, b){
 
@@ -59,14 +60,14 @@ function orderArrayTwoDimentional(array, i){
 
 // .reduce method and arrow function
 
-function calculateAverageReduce(array){
+StatisticsForms.calculateAverageReduce = function calculateAverageReduce(array){
     let sum = array.reduce((a, b) => a + b);
     return sum / array.length;
 }
 
 // For
 
-function calculateAverageFor(array) {
+StatisticsForms.calculateAverageFor = function calculateAverageFor(array) {
     let sumArray = 0;
     for(let i = 0; i < array.length; i++){
         sumArray = sumArray + array[i];
@@ -78,7 +79,7 @@ function calculateAverageFor(array) {
 
 // If an array is pair or not
 
-function isPair(array){
+StatisticsForms.isPair = function isPair(array){
     if(array.length % 2 == 0){
         return 'Is pair'
     } else {
@@ -88,11 +89,11 @@ function isPair(array){
 
 // Arrow 
 
-const esPairArrow = (array) => array.length % 2 == 0 ? 'Is pair' : 'Is odd';
+StatisticsForms.isPairArrow = array => array.length % 2 == 0 ? 'Is pair' : 'Is odd';
 
 // Calculate the median of an array
 
-function calculateMedian(unorderedArray){
+StatisticsForms.calculateMedian = function calculateMedian(unorderedArray){
     const array = orderArray(unorderedArray);
     const pairArray = isPair(array);
 
@@ -111,7 +112,7 @@ function calculateMedian(unorderedArray){
 
 // Calculate the mode of an array
 
-function calculateMode(array){
+StatisticsForms.calculateMode = function calculateMode(array){
     const listCount = {};
 
     for(let i = 0; i < array.length; i++){
