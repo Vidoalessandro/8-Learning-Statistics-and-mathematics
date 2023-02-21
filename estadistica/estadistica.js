@@ -28,6 +28,33 @@ function orderArray(array){
     return order;
 }
 
+// Order a two-dimensional array
+
+function orderArrayTwoDimentional(array, i){
+
+    function orderListSort(a, b){
+
+        // long solution
+
+      /*if(a < b){
+            return -1;
+        }
+        else if(a == b){
+            return 0;
+        }
+        else if(a > b){
+            return 1;
+        }*/
+
+        // Short solution
+
+        return a[i] - b[i];
+    }
+
+    const order = array.sort(orderListSort);
+    return order;
+}
+
 // Calculate the average of an array
 
 // .reduce method and arrow function
@@ -79,5 +106,33 @@ function calculateMedian(unorderedArray){
     } else {
         const indexMedianOddArray =  Math.floor(array.length / 2);
         console.log(array[indexMedianOddArray]);
+    }
+}
+
+// Calculate the mode of an array
+
+function calculateMode(array){
+    const listCount = {};
+
+    for(let i = 0; i < array.length; i++){
+        const element = array[i];
+
+        if(listCount[element]){
+           listCount[element] += 1; 
+        } else {
+            listCount[element] = 1;
+        }
+    }
+
+    const listArray = Object.entries(listCount);
+    const orderArray = orderArrayTwoDimentional(listArray, 1);
+    const maxNumberArray = orderArray[orderArray.length - 1]; 
+    const maxNumberBefore = orderArray[orderArray.length - 2];
+
+    if(maxNumberArray[1] === maxNumberBefore[1]){
+        console.log('There isn\'t mode');
+    } else {
+        modeArray = maxNumberArray[0];
+        console.log('the mode of this array is: ' + modeArray);
     }
 }
