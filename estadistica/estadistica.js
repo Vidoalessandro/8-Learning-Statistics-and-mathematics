@@ -94,14 +94,14 @@ StatisticsForms.isPairArrow = array => array.length % 2 == 0 ? 'Is pair' : 'Is o
 // Calculate the median of an array
 
 StatisticsForms.calculateMedian = function calculateMedian(unorderedArray){
-    const array = orderArray(unorderedArray);
-    const pairArray = isPair(array);
+    const array = StatisticsForms.orderArray(unorderedArray);
+    const pairArray = StatisticsForms.isPair(array);
 
     if(pairArray == 'Is pair'){
         const medianNumber1 = array[(array.length / 2) - 1];
         const medianNumber2 = array[array.length / 2];
         const medianNumbers = [medianNumber1, medianNumber2];
-        const medianPair = calculateAverageReduce(medianNumbers);
+        const medianPair = StatisticsForms.calculateAverageReduce(medianNumbers);
         console.log(medianPair);
 
     } else {
@@ -126,7 +126,7 @@ StatisticsForms.calculateMode = function calculateMode(array){
     }
 
     const listArray = Object.entries(listCount);
-    const orderArray = orderArrayTwoDimentional(listArray, 1);
+    const orderArray = StatisticsForms.orderArrayTwoDimentional(listArray, 1);
     const maxNumberArray = orderArray[orderArray.length - 1]; 
     const maxNumberBefore = orderArray[orderArray.length - 2];
 
