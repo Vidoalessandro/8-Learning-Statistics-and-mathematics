@@ -102,11 +102,11 @@ StatisticsForms.calculateMedian = function calculateMedian(unorderedArray){
         const medianNumber2 = array[array.length / 2];
         const medianNumbers = [medianNumber1, medianNumber2];
         const medianPair = StatisticsForms.calculateAverageReduce(medianNumbers);
-        console.log(medianPair);
+        return medianPair;
 
     } else {
         const indexMedianOddArray =  Math.floor(array.length / 2);
-        console.log(array[indexMedianOddArray]);
+        return array[indexMedianOddArray];
     }
 }
 
