@@ -21,7 +21,7 @@ function medianForPerson(namePerson){
 
 // Returns the projection of that person's salary for the following year
 
- function projectionForPerson(person){
+function projectionForPerson(person){
     const jobs = findPerson(person).trabajos;
 
     let salaryGrowth = [];
@@ -40,4 +40,24 @@ function medianForPerson(namePerson){
     const projectionSalary = (medianGrowthRate * lastSalary) + lastSalary;
 
     return projectionSalary;
- }
+}
+
+// Business analysis
+
+const companies = {};
+
+for(person of salarios){
+    for(job of person.trabajos){
+        if(!companies[job.empresa]){
+            companies[job.empresa] = {};
+        }
+
+        if(!companies[job.empresa][job.year]){
+            companies[job.empresa][job.year] = [];
+        }
+
+        companies[job.empresa][job.year].push(job.salario);
+    }
+}
+
+console.log(companies);
