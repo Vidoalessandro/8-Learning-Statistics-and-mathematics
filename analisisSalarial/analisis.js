@@ -61,3 +61,16 @@ for(person of salarios){
 }
 
 console.log(companies);
+
+// Returns the median salary of that person 
+
+function medianCompanyYear(name, year){
+    if(!companies[name]){
+        console.warn('This company does\'t exist');
+    }
+    else if(!companies[name][year]){
+        console.warn('This company did not give salaries that year');
+    } else {
+        return StatisticsForms.calculateMedian(companies[name][year]);
+    }
+}
