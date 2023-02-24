@@ -74,3 +74,42 @@ function medianCompanyYear(name, year){
         return StatisticsForms.calculateMedian(companies[name][year]);
     }
 }
+
+// Returns the projection of the company for the following year
+
+function projectionForCompany(name){
+
+    if(!companies[name]){
+        console.warn('This company does\'t exist');
+
+    } else {    
+        const nameCompany = companies[name];
+        const yearsCompaniesSalaries = [];
+        const yearsCompaniesSalariesTotal = [];
+
+        for(year in nameCompany){
+            yearsCompaniesSalaries.push(nameCompany[year]);
+        }
+
+        for(year of yearsCompaniesSalaries){
+            yearsCompaniesSalariesTotal.push(StatisticsForms.calculateMedian(year));
+        }
+
+        let salaryGrowth = [];
+
+        for(let i = 1 ; i < yearsCompaniesSalariesTotal.length; i++){
+            const salary1 = yearsCompaniesSalariesTotal[i - 1];
+            const salary2 = yearsCompaniesSalariesTotal[i];
+    
+            const increase = salary2 - salary1;
+            const growthRate = increase / salary1;
+            salaryGrowth.push(growthRate);
+        }
+
+        const medianGrowthRate = StatisticsForms.calculateMedian(salaryGrowth);
+        const lastSalary = yearsCompaniesSalariesTotal[yearsCompaniesSalariesTotal.length - 1];
+        const projectionSalary = (medianGrowthRate * lastSalary) + lastSalary;
+    
+        return projectionSalary;
+    }
+}
