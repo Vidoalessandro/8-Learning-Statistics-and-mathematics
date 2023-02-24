@@ -1,3 +1,11 @@
+console.group('Country analysis');
+
+// Country analysis
+
+console.log(salarios);
+
+console.groupEnd('Country analysis');
+
 // Personal analysis
 
 // Find a person listed in .salarios
@@ -42,6 +50,8 @@ function projectionForPerson(person){
     return projectionSalary;
 }
 
+console.group('Business analysis');
+
 // Business analysis
 
 const companies = {};
@@ -61,6 +71,8 @@ for(person of salarios){
 }
 
 console.log(companies);
+
+console.groupEnd('Business analisys')
 
 // Returns the median salary of that person 
 
@@ -112,4 +124,49 @@ function projectionForCompany(name){
     
         return projectionSalary;
     }
+}
+
+// General analysis
+
+function generalMedian(country){
+    const salaries = [];
+
+    for(person of country){
+        salaries.push(medianForPerson(person.name));
+    }
+
+    const personMedian = StatisticsForms.calculateMedian(salaries);
+
+    return personMedian;
+}
+
+// Returns the median of Top 10%
+
+function medianTop10(country){
+    const salaries = [];
+
+    for(person of country){
+        salaries.push(medianForPerson(person.name));
+    }
+
+    const orderSalaries = StatisticsForms.orderArray(salaries);
+    const tenTop = (orderSalaries.length * 10) / 100;
+    
+    // .slice and .splice methods
+
+    /*const tenTop = (orderSalaries.length * 10) / 100;
+    const limit = orderSalaries.length - tenTop;
+    const salariesTopTen = orderSalaries.slice(limit, orderSalaries.length);
+    const salariesTopTen = orderSalaries.splice(limit, orderSalaries.length);*/
+
+    // My solution using For
+    
+    const salariesTopTen = [];
+
+    for(let i = orderSalaries.length - tenTop; i < orderSalaries.length; i++){
+        salariesTopTen.push(orderSalaries[i]);
+    }
+
+    const salariesTopTenMedian = StatisticsForms.calculateMedian(salariesTopTen);
+    return salariesTopTenMedian;
 }
